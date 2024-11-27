@@ -24,7 +24,6 @@ void limpa_buffer() {
 void livro_ler(pLivro livros, int qtde) {
     for (int i = 0; i < qtde; i++) {
         printf("=== Livro %d ===\n", i + 1);
-
         printf("Nome: ");
         limpa_buffer();
         fgets(livros[i].nome, sizeof(livros[i].nome), stdin);
@@ -65,7 +64,13 @@ void livro_desaloca(pLivro livros) {
 
 int main() {
     int qtde;
+    printf("Quantos livros deseja cadastrar? ");
     scanf("%d", &qtde);
+
+    if (qtde <= 0) {
+        printf("Número de livros inválido.\n");
+        return 0;
+    }
 
     pLivro livros = livro_aloc(qtde);
     if (livros == NULL) {
@@ -74,9 +79,7 @@ int main() {
     }
 
     livro_ler(livros, qtde);
-
     livro_exibe(livros, qtde);
-
     livro_desaloca(livros);
 
     return 0;
