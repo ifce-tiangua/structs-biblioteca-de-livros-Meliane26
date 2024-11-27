@@ -48,14 +48,13 @@ void livro_ler(pLivro livros, int qtde) {
 }
 
 void livro_exibe(pLivro livros, int qtde) {
-    printf("\n=== Informações dos Livros ===\n");
     for (int i = 0; i < qtde; i++) {
-        printf("Livro %d:\n", i + 1);
+        printf("\nLivro %d:\n", i + 1);
         printf("Nome: %s\n", livros[i].nome);
         printf("ISBN: %s\n", livros[i].isbn);
         printf("Preço: R$ %.2f\n", livros[i].preco);
-        printf("Score: %d/10\n", livros[i].score);
-        printf("Editora: %s\n\n", livros[i].editora);
+        printf("Score: %d\n", livros[i].score);
+        printf("Editora: %s\n", livros[i].editora);
     }
 }
 
