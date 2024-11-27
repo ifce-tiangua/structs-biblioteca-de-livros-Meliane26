@@ -20,7 +20,7 @@ void livro_ler(pLivro livros, int qtde) {
     for (int i = 0; i < qtde; i++) {
         printf("=== Livro %d ===\n", i + 1);
         printf("Nome: ");
-        getchar();
+        getchar(); // Limpa o buffer
         fgets(livros[i].nome, sizeof(livros[i].nome), stdin);
         livros[i].nome[strcspn(livros[i].nome, "\n")] = '\0';
 
@@ -66,7 +66,7 @@ int main() {
     }
 
     pLivro livros = livro_aloc(qtde);
-    if (!livros) {
+    if (livros == NULL) {
         printf("Erro ao alocar memória.\n");
         return 1;
     }
