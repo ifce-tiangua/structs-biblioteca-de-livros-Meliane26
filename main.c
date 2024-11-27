@@ -19,7 +19,7 @@ pLivro livro_aloc(int qtde) {
 void livro_ler(pLivro livros, int qtde) {
     for (int i = 0; i < qtde; i++) {
         printf("Nome: ");
-        getchar(); // Limpa o buffer
+        getchar();  // Limpa o buffer antes de ler uma string
         fgets(livros[i].nome, sizeof(livros[i].nome), stdin);
         livros[i].nome[strcspn(livros[i].nome, "\n")] = '\0';
 
@@ -29,10 +29,11 @@ void livro_ler(pLivro livros, int qtde) {
 
         printf("Preço: ");
         scanf("%f", &livros[i].preco);
+        getchar(); // Limpa o buffer após o scanf
 
         printf("Score (0-10): ");
         scanf("%d", &livros[i].score);
-        getchar(); // Limpa o buffer após a entrada de número
+        getchar(); // Limpa o buffer após o scanf
 
         printf("Editora: ");
         fgets(livros[i].editora, sizeof(livros[i].editora), stdin);
