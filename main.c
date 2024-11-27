@@ -16,16 +16,11 @@ pLivro livro_aloc(int qtde) {
     return (pLivro)malloc(qtde * sizeof(Livro));
 }
 
-void limpa_buffer() {
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF);
-}
-
 void livro_ler(pLivro livros, int qtde) {
     for (int i = 0; i < qtde; i++) {
         printf("=== Livro %d ===\n", i + 1);
         printf("Nome: ");
-        limpa_buffer();
+        getchar();
         fgets(livros[i].nome, sizeof(livros[i].nome), stdin);
         livros[i].nome[strcspn(livros[i].nome, "\n")] = '\0';
 
@@ -35,11 +30,10 @@ void livro_ler(pLivro livros, int qtde) {
 
         printf("Preço: ");
         scanf("%f", &livros[i].preco);
-        limpa_buffer();
 
         printf("Score (0-10): ");
         scanf("%d", &livros[i].score);
-        limpa_buffer();
+        getchar();
 
         printf("Editora: ");
         fgets(livros[i].editora, sizeof(livros[i].editora), stdin);
@@ -73,7 +67,7 @@ int main() {
     }
 
     pLivro livros = livro_aloc(qtde);
-    if (livros == NULL) {
+    if (!livros) {
         printf("Erro ao alocar memória.\n");
         return 1;
     }
