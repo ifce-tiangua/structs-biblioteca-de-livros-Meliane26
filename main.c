@@ -58,7 +58,6 @@ void livro_desaloca(pLivro livros) {
 
 int main() {
     int qtde;
-    printf("Quantos livros deseja cadastrar? ");
     scanf("%d", &qtde);
 
     if (qtde <= 0) {
