@@ -36,12 +36,13 @@ void livro_ler(pLivro livros, int qtde) {
 
         printf("Preço: ");
         scanf("%f", &livros[i].preco);
+        limpa_buffer();
 
         printf("Score (0-10): ");
         scanf("%d", &livros[i].score);
+        limpa_buffer();
 
         printf("Editora: ");
-        limpa_buffer();
         fgets(livros[i].editora, sizeof(livros[i].editora), stdin);
         livros[i].editora[strcspn(livros[i].editora, "\n")] = '\0';
     }
